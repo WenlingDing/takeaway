@@ -20,4 +20,9 @@ from accounts import urls as accounts_url
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include(accounts_url.urlpatterns)),
+    url(r'^$', index, name='index'),
+	url(r'^menu/(?P<menu_name>\w+)/$', menu, name='menu'),
+	url(r'^food/(?P<food_name>\w+)/$', food, name='food'),
+	url(r'^search/$', search, name='search'),
+	url(r'^more/(?P<menu_name>\w+)/$', more, name='more')
 ]

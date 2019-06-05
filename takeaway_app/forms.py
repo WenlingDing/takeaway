@@ -1,11 +1,6 @@
 from django import forms
-from .models import Menu,Food
+from .models import Food
 
-class MenuForm(forms.ModelForm):
-    
-    class Meta:
-        model = Menu
-        fields = ('name')
 
 class FoodForm(forms.ModelForm):
     
