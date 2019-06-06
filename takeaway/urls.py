@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings 
+from django.conf.urls.static import static
 from accounts import urls as accounts_url
+from takeaway_app.views import index,menu,food, food_detail,search
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include(accounts_url.urlpatterns)),
-    url(r'^$', index, name='index'),
+    url(r'^$', index),
 	url(r'^menu/(?P<menu_name>\w+)/$', menu, name='menu'),
 	url(r'^food/(?P<food_name>\w+)/$', food, name='food'),
 	url(r'^search/$', search, name='search'),
-	url(r'^more/(?P<menu_name>\w+)/$', more, name='more')
+	url(r'^more/(?P<menu_name>\w+)/$', food_detail)
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

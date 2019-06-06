@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% load nav_tags %}
+
+{% block title %}
+<title>menu</title>
+{% endblock %}
+
+
+{% block content %}
+		<div id="content_2" class="juzhong">
+			<div class="midbox" id="chuancai">
+				<span style="font-size:18px;">{{ menu.name }}<span>
+					{% for food in food_list %}
+						<li><a href="{{ food.get_absolute_url }}"><img src="{{ food.image }}"  /><div class="zizi">{{ food.name }}</div></a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+{% endblock content%}
+
+
+{% block nav %}
+	<div id="header">
+		<ul>
+			{% get_menu None as menu_list %}
+			{% for menu in menu_list %}
+				<li><a class="ex4" href="{% url 'takeaway:menu' menu.name %}"><img src="{{ menu.image }}" width="25"><span>{{ menu.name }}</span></a></li>
+			{% endfor %}
+		</ul>
+	<div>
+{% endblock dock %}
