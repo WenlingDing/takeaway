@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}{% load static %}
+{% load bootstrap_tags %}
+{% block title %}
+<title>home</title>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="row">  
+     <div>
+        <h1 style="text-align:center">{{food_detail.name}}</h1> 
+     </div>
+    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 block">
+    	       <img src="{% get_media_prefix %}{{food_detail.image}}" style="width:90%" alt="foods" />
+          		<p>{{ food_detail.description }}</p> 
+                <h6>Cuisine: {{ food_detail.menu }}</h6>
+                <h6>price:{{ food_detail.price }}$</h6> 
+                <a href="">[cart]</a>
+    </div> 
+   </div> 
+</div>
+
+{% endblock%}

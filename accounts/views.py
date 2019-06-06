@@ -3,10 +3,8 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, RegisterUserForm
 
-
-# Create your views here.
 def index(request):
-    return render(request, 'layout.html')
+    return render(request, 'index.html')
     
 @login_required
 def logout(request):

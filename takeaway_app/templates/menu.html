@@ -18,15 +18,4 @@
 			</div>
 		</div>
 {% endblock content%}
-
-
-{% block nav %}
-	<div id="header">
-		<ul>
-			{% get_menu None as menu_list %}
-			{% for menu in menu_list %}
-				<li><a class="ex4" href="{% url 'takeaway:menu' menu.name %}"><img src="{{ menu.image }}" width="25"><span>{{ menu.name }}</span></a></li>
-			{% endfor %}
-		</ul>
-	<div>
 {% endblock dock %}

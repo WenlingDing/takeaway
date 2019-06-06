@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Menu, Food
 from .forms import  FoodForm
 from django.db.models import Q
@@ -12,27 +12,20 @@ def index(request):
         'menu':menu
     })
     
-def menu(request, menu_name):
-    menu = Menu.objects.get(name=menu_name)
-    menu_list = list(Food.objects.filter(menu__name=menu_name))
+def menu(request,id):
+    menu = Menu.objects.get(id=Menu.id)
+    menu_list = Food.objects.all()
     return render(request, 'menu.html', {
         'menu': menu,
         'menu_list': menu_list,
         })
 
-def food_detail(request, PK):
-    menu = Menu.objects.get(name=menu_name)
-    food_list = list(Food.objects.filter(menu__name=menu_name))
-    return render(request, 'detail.html', {
-        'menu': menu,
-        'food_list': food_list
-        })
-        
-def food(request, food_name):
-    food = Food.objects.get(name=food_name)
-    return render(request, 'food.html', {
-        'food': food,
-        })
+def food_detail(request,id):
+    food_detail = Food.objects.get(id=id)
+    return render(request, 'detail.html',{
+        'food_detail': food_detail,
+    })
+
 
 def search(request):
     q = request.GET.get('q')
@@ -46,4 +39,3 @@ def search(request):
         'food_list': food_list,
         'error_msg': error_msg
         })
-

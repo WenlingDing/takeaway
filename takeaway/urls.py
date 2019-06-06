@@ -16,18 +16,19 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings 
+from cart import urls as urls_food
 from django.conf.urls.static import static
 from accounts import urls as accounts_url
-from takeaway_app.views import index,menu,food, food_detail,search
+from takeaway_app.views import  food_detail, search ,index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^user/', include(accounts_url.urlpatterns)),
     url(r'^$', index),
-	url(r'^menu/(?P<menu_name>\w+)/$', menu, name='menu'),
-	url(r'^food/(?P<food_name>\w+)/$', food, name='food'),
+    url(r'^user/', include(accounts_url.urlpatterns)),
 	url(r'^search/$', search, name='search'),
-	url(r'^more/(?P<menu_name>\w+)/$', food_detail)
+	url(r'detail/(?P<id>\d+)$', food_detail, name='food_detail'),
+	url(r'^cart/', include(urls_food.urlpatterns)),
+	
 ]
 
 if settings.DEBUG:

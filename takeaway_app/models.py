@@ -16,7 +16,8 @@ class Food(models.Model):
 
 	def __str__(self):
 		return self.name
-
+	
+		
 class Slide(models.Model):
 	position = models.CharField('position', max_length=10)
 	image = models.ImageField(upload_to='images', null=False ,blank=False)
