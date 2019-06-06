@@ -26,16 +26,7 @@ def food_detail(request,id):
         'food_detail': food_detail,
     })
 
-
 def search(request):
-    q = request.GET.get('q')
-    error_msg = ''
-    if not q:
-        error_msg = ''
-        return render(request, 'search.html', {'error_msg': error_msg})
-    food_list = Food.objects.filter(Q(name__icontains=q))
-    error_msg = 'Sorry we have not this food' if not food_list else 'you want all here '
-    return render(request, 'search.html', {
-        'food_list': food_list,
-        'error_msg': error_msg
-        })
+    food = Food.objects.filter(name__icontains=request.GET['q'])
+    return render(request, "index.html", {"food": food})
+    

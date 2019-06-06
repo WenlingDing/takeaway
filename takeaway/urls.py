@@ -19,7 +19,7 @@ from django.conf import settings
 from cart import urls as urls_food
 from django.conf.urls.static import static
 from accounts import urls as accounts_url
-from takeaway_app.views import  food_detail, search ,index
+from takeaway_app.views import  food_detail, search, index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
