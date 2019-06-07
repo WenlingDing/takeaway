@@ -23,7 +23,7 @@ from takeaway_app.views import  food_detail, search, index,menu
 from checkout import urls as urls_checkout
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    url(r'^$', index,name='index'),
     url(r'^user/', include(accounts_url.urlpatterns)),
 	url(r'^search/$', search, name='search'),
 	url(r'^menu/(?P<id>\d+)$', menu, name='menu'),

@@ -5,14 +5,13 @@
 {% endblock %}
 {% block content %}
 
-<<div class="container">
+<div class="container">
 <div class="row">  
 	 {% for food in food %}
 	 <h1>{{ food.name }}</h1>
     <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 block">
-    			
     	       <img src="{% get_media_prefix %}{{food.image}}" style="width:90%" alt="foods" />
-          			<h6>price:{{ food.price }}$</h6> 
+          		<h6>price:{{ food.price }}$</h6> 
                 <h6>Cuisine: {{ food.menu }}</h6>
                 <a href="{% url 'food_detail' food.id %}" class="read-more">Read More</a>
                 <form method="post" action="{% url 'add_to_cart' food.id %}">

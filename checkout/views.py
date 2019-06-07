@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404,  redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils import timezone
 from takeaway_app.models import Food
 import stripe
+from takeaway_app.views import index
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -48,7 +49,7 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
-                return redirect(reverse('products'))
+                return redirect(index)
             else:
                 messages.error(request, "Unable to take payment")
         else:

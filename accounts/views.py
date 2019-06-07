@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, RegisterUserForm
+from takeaway_app.views import index
 
-def index(request):
-    return render(request, 'index.html')
     
 @login_required
 def logout(request):
