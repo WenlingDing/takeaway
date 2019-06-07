@@ -1,6 +1,5 @@
-{% extends 'layout.html' %}
-{% load staticfiles %}
-{% load nav_tags %}
+{% extends 'layout.html' %}{% load static %}
+{% load bootstrap_tags %}
 
 {% block title %}
 <title>menu</title>
@@ -8,14 +7,27 @@
 
 
 {% block content %}
-		<div id="content_2" class="juzhong">
-			<div class="midbox" id="chuancai">
-				<span style="font-size:18px;">{{ menu.name }}<span>
-					{% for food in food_list %}
-						<li><a href="{{ food.get_absolute_url }}"><img src="{{ food.image }}"  /><div class="zizi">{{ food.name }}</div></a></li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
+<div class="container">
+<div class="row">  
+	 {% for food in menu_list %}
+    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 block">
+    			<h5>{{ food.name }}</h5>
+    	       <img src="{% get_media_prefix %}{{food.image}}" style="width:90%" alt="foods" />
+          			<h6>price:{{ food.price }}$</h6> 
+                <h6>Cuisine: {{ food.menu }}</h6>
+                <a href="{% url 'food_detail' food.id %}" class="read-more">Read More</a>
+                <form method="post" action="{% url 'add_to_cart' food.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Cart</button>
+                        </span>
+                    </div>
+                </form>
+    </div> 
+    {% endfor %}
+   </div> 
+</div> 
+
 {% endblock content%}
-{% endblock dock %}

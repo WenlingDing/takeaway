@@ -19,17 +19,17 @@ from django.conf import settings
 from cart import urls as urls_food
 from django.conf.urls.static import static
 from accounts import urls as accounts_url
-from takeaway_app.views import  food_detail, search, index
+from takeaway_app.views import  food_detail, search, index,menu
 from checkout import urls as urls_checkout
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     url(r'^user/', include(accounts_url.urlpatterns)),
 	url(r'^search/$', search, name='search'),
+	url(r'^menu/(?P<id>\d+)$', menu, name='menu'),
 	url(r'detail/(?P<id>\d+)$', food_detail, name='food_detail'),
 	url(r'^cart/', include(urls_food.urlpatterns)),
 	url(r'^checkout/', include(urls_checkout)),
-	
 ]
 
 if settings.DEBUG:

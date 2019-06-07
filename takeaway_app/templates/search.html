@@ -1,38 +1,31 @@
 {% extends 'layout.html' %}{% load static %}
 {% load bootstrap_tags %}
 {% block title %}
-<title>home</title>
+<title>search</title>
 {% endblock %}
 {% block content %}
-<!--slide start-->
-		<div id="content" class="center" >
-	  		<div id="slider_box" >
-	    		<div id="slider" class="center">
-	      		<div>
-             <img src="{% get_media_prefix %}{{Slide.image}}" />
-         </div>
-	      			<ul id="indexs">
-	        			<li class="hover">1</li>
-	                   	<li>2</li>
-	                   	<li>3</li>
-	      			</ul>
-	    		</div>
-	  		</div>
-		</div>
 
-<div class="container">
+<<div class="container">
 <div class="row">  
-	{% for food in food_list %}
-    <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 block">
-    			<h5>{{ food.name }}</h5>
+	 {% for food in food %}
+	 <h1>{{ food.name }}</h1>
+    <div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 block">
+    			
     	       <img src="{% get_media_prefix %}{{food.image}}" style="width:90%" alt="foods" />
           			<h6>price:{{ food.price }}$</h6> 
                 <h6>Cuisine: {{ food.menu }}</h6>
-                <a href="{% url 'food_detail' id=food.id %}" class="read-more">Read More</a>
-                <a href="">[cart]</a>
+                <a href="{% url 'food_detail' food.id %}" class="read-more">Read More</a>
+                <form method="post" action="{% url 'add_to_cart' food.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                    </div>
+                </form>
     </div> 
     {% endfor %}
    </div> 
-   
 </div> 
 {% endblock%}

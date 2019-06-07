@@ -35,7 +35,9 @@
             </a>
         </li>
     </ul>
+  
     <form class="form-inline my-2 my-lg-0" method='get' action='{% url 'search' %}'>
+          {% csrf_token %}
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search" type="search" name="q">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
@@ -44,7 +46,7 @@
 <ul class="nav">
  {% for menu in menu %}
   <li class="nav-item">
-    <a class="nav-link">{{menu.name}}</a>
+    <a class="nav-link" href="{% url 'menu' id=menu.id %}">{{menu.name}}</a>
   </li>
   {% endfor %}
 </ul>
