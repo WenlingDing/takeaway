@@ -12,9 +12,12 @@ def index(request):
         'menu':menu
     })
     
+
 def menu(request,id):
-    food_menu = Menu.objects.get(id=id)
+# to show the menu button list
     menu = Menu.objects.all()
+# to get foods for each menu 
+    food_menu = Menu.objects.get(id=id)
     menu_list=food_menu.food_menu.all()
     return render(request, 'menu.html', {
         'menu_list': menu_list,

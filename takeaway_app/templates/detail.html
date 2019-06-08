@@ -15,15 +15,19 @@
           		<p style="width:50%">{{ food_detail.description }}</p> 
                 <h6>Cuisine: {{ food_detail.menu }}</h6>
                 <h6>price:{{ food_detail.price }}$</h6> 
+                {% if user.is_authenticated %}
                <form method="post" action="{% url 'add_to_cart' food_detail.id %}">
                     {% csrf_token %}
                     <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" value="1" placeholder="Quantity">
                         <span class="input-group-btn" style="width:50%">
                             <button class="btn btn-success" type="submit">Add to cart</button>
                         </span>
                     </div>
                 </form>
+                 {% else %}
+                 <a class="btn btn-info" href="{% url 'login_link' %}" role="button">Add to cart</a>
+                {% endif %}
     </div> 
    </div> 
 </div>

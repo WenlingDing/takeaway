@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404,  redirect
+from django.shortcuts import render, get_object_or_404,  redirect,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
@@ -12,8 +12,6 @@ from takeaway_app.views import index
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-
-@login_required()
 def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
@@ -39,13 +37,12 @@ def checkout(request):
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
-                    currency="EUR",
+                    currency="SG",
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id']
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-            
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}

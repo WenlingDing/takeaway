@@ -1,3 +1,62 @@
 form {
     width:80%;
 }
+
+/*index*/
+
+
+/*cart*/
+ul{
+    list-style:none;
+}
+
+/*footer*/
+footer {
+    margin-top:10px;
+}
+
+.footerBlock{
+    display:inline-block;
+    padding: 3em;
+    margin: 0em;
+}
+
+.footerIntro{
+    font-size:small;
+}
+
+.info {
+    text-indent: 2em;
+    font-size: medium;
+    margin-bottom: 20px;
+}
+
+.page-footer{
+    background-color:#e27c81;
+    color:#F0F8FF;
+    bottom: 0;
+}
+
+.fList {
+    text-decoration:underline;
+}
+
+
+.link {
+    text-indent: 4em;
+    font-size: medium;
+}
+
+.link1 {
+    color: white;
+    font-size: medium;
+    line-height:2em;
+}
+.copyright {
+    text-align: center;
+    font-size: xx-small;
+    background-color: #000000;
+    padding-bottom: 1px;
+    position: relative;
+}
+

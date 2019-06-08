@@ -1,14 +1,17 @@
 {% extends 'layout.html' %}{% load static %}
 {% load bootstrap_tags %}{%block title%}login{%endblock%} 
 {% block content %}
+
 <div class='container'>
     <div class='row'>
+        <p>If you already have not an account, you can <a href="{% url 'register_link' %}">register</a></p>
         <form method='post'>
         {% csrf_token %} {{ form | as_bootstrap}}
         {{ form.as_bootstrap }}
-        <button type="submit" class="btn btn-default">Login</button>
+        
+        <button type="submit" class="btn btn-danger">Login</button>
     </form>
-    </div>
-</div>
+   </div>
+</div> 
     
 {% endblock %}
