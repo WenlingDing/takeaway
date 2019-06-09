@@ -7,7 +7,9 @@ Website is designed for hungry users to easily view a wide selection of food to 
 
 UX
 --
-The main idea is to allow a user to make a food selection quickly and make a checkout for payment.
+
+The main idea is to allow a user to make a food selection quickly and make a checkout for payment.<br>
+
 Feature – Accounts app
 --
 As a customer user, I want to be able to register an account so that I can make orders
@@ -29,23 +31,33 @@ As a customer user, I want to be able to add a food item to cart so that I can o
 As a customer user, I want to select the quantity of food I want to order so that I do not need to click multiple times if I want to buy more than 1 quantity of the food item
 As a customer user, I want to view the number of items in my cart from the dashboard so that I can keep track on my orders
 As a customer user, I want to view all my orders and the total amount it cost so that I can review before payment
+
 Feature – checkout app
 --
+
 As a customer user, I want to be able to input payment details at checkout so that I can make payment<br>
 
 Features
 ==
+
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+
 Existing Features<br>
-Feature – Accounts app
+
+Feature – Accounts app<br>
+--
 Feature is a user management tool that allow users to register and setup an account by filling out a form
-A user upon registered, will be able to login to add orders and checkout
-Feature – Takeaway app
-Feature allow users to view all food items by loading all food items regardless if user is login
-Users are able to search through a search field and any characters input will search the database for the food item that matches the input
-Food categories are also display prominently at the top for user to click and upon click, will display the food items that belong to the category
-A view more button is available so that on click a user can click to view more of the food item
+A user upon registered, will be able to login to add orders and checkout<br>
+
+Feature – Takeaway app<br>
+--
+Feature allow users to view all food items by loading all food items regardless if user is login<br>
+Users are able to search through a search field and any characters input will search the database for the food item that matches the input<br>
+Food categories are also display prominently at the top for user to click and upon click, will display the food items that belong to the category<br>
+A view more button is available so that on click a user can click to view more of the food item<br>
+
 Feature – Cart app
+--
 User can track their cart order(s) by viewing the cart at the menu bar which will display the number of orders if there is at least 1 order
 On click of cart, user can see all the orders in the cart and able to make further changes to the order before checkout
 The cart will also calculate the total amount of the orders.<br>
@@ -62,14 +74,14 @@ Feature to track order history made by a user
 Technologies Used
 ==
 Django1.11<br>
-PostgreSQL<br>
-Stripe<br>
-HTML 5<br>
-CSS 3<br>
-Javascript<br>
 python3<br>
-bootstrap 4<br>
+PostgreSQL<br>
 sqlite3<br>
+Stripe<br>
+HTML5<br>
+CSS3<br>
+Javascript<br>
+bootstrap 4<br>
 
 Testing
 ==
@@ -107,15 +119,15 @@ I have deployed this project to the hosting platform Heroku with a separate GitH
 Deployment instructions
 ==
 
-•	Please note that running this page locally without connecting to a database will result in errors.
-•	To connect to your own database, you need to update the database settings in the settings.py file.
-•	After you have reconfigured your own database, type the following in the command line:
-o	$python3 manage.py makemigrations
-o	$python3 manage.py migrate
-o	$python3 manage.py createsuperuser
-o	$python3 manage.py runserver
-•	Then open the app in your local host to view locally
-•	Do not forget to install the requirements.txt
+•	Please note that running this page locally without connecting to a database will result in errors.<br>
+•	To connect to your own database, you need to update the database settings in the settings.py file.<br>
+•	After you have reconfigured your own database, type the following in the command line:<br>
+o	$python3 manage.py makemigrations<br>
+o	$python3 manage.py migrate<br>
+o	$python3 manage.py createsuperuser<br>
+o	$python3 manage.py runserver<br>
+•	Then open the app in your local host to view locally<br>
+•	Do not forget to install the requirements.txt<br>
 
 Credits
 ==
@@ -123,6 +135,7 @@ Credits
 Media<br>
 The photos were copied from the https://thewoksoflife.com<br>
 
-Acknowledgements<br>
+Acknowledgements
+==
 This is not business use.<br>
 
