@@ -19,7 +19,7 @@
     	       <img alt="Card image cap" class="card-img-top img-fluid" style="width:80%; height:25vw;" src="{% get_media_prefix %}{{food.image}}" />
     	       <h5>{{ food.name }}</h5>
     	       <h6>Cuisine: {{ food.menu }}</h6>
-          			<h6>price:{{ food.price }}$</h6> 
+          			<h6>Price:${{ food.price }}</h6> 
                 <a href="{% url 'food_detail' food.id %}" class="btn btn-warning read-more">Read More</a>
                 {% if user.is_authenticated %}
                 <form method="post" action="{% url 'add_to_cart' food.id %}">

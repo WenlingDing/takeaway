@@ -6,30 +6,30 @@
 {% block content %}
 
 <div class="container">
-<div class="row">  
-     <div>
-        <h1 style="text-align:center">{{food_detail.name}}</h1> 
-     </div>
-    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 block">
-    	       <img src="{% get_media_prefix %}{{food_detail.image}}" style="width:50%" alt="foods" />
-          		<p style="width:50%">{{ food_detail.description }}</p> 
+   
+    <h1 class="text-center">{{food_detail.name}}</h1>
+     <div class="row justify-content-center">
+<div class="card text-center" style="width: 20rem;">
+    	       <img alt="Card image cap" class="card-img-top img-fluid" src="{% get_media_prefix %}{{food_detail.image}}" />
+    	       <div class="card-body">
+          		<p>{{ food_detail.description }}</p> 
                 <h6>Cuisine: {{ food_detail.menu }}</h6>
-                <h6>price:{{ food_detail.price }}$</h6> 
-                {% if user.is_authenticated %}
+                <h6>Price: ${{ food_detail.price }}</h6> 
+            {% if user.is_authenticated %}
                <form method="post" action="{% url 'add_to_cart' food_detail.id %}">
                     {% csrf_token %}
                     <div class="input-group">
                         <input name="quantity" type="number" min="1" max="999" class="form-control" value="1" placeholder="Quantity">
-                        <span class="input-group-btn" style="width:50%">
+                        <span class="input-group-btn">
                             <button class="btn btn-success" type="submit">Add to cart</button>
                         </span>
                     </div>
                 </form>
-                 {% else %}
+             {% else %}
                  <a class="btn btn-info" href="{% url 'login_link' %}" role="button">Add to cart</a>
-                {% endif %}
-    </div> 
+            {% endif %}
    </div> 
+   </div>
 </div>
-
+</div>
 {% endblock%}

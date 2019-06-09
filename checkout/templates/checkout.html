@@ -5,54 +5,15 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/">
 </script>
 <script>
-// /* global $ */
-// $(function() {
-//     $("#payment-form").submit(function() {
-//         var form = this;
-//         var card = {
-//             number: $("#id_credit_card_number").val(),
-//             expMonth: $("#id_expiry_month").val(),
-//             expYear: $("#id_expiry_year").val(),
-//             cvc: $("#id_cvv").val()
-//         };
-        
-//      let stripe_publishable_key = '{{stripe_publishable_key }}';
-//      Stripe.publishableKey = stripe_publishable_key;
-     
-//      Stripe.createToken(card, function(status, response) {
-//         if (status === 200) {
-//             $("#credit-card-errors").hide();
-//             $("#id_stripe_id").val(response.id);
-
-//             // Prevent the credit card details from being submitted
-//             // to our server
-//             $("#id_credit_card_number").removeAttr('name');
-//             $("#id_cvv").removeAttr('name');
-//             $("#id_expiry_month").removeAttr('name');
-//             $("#id_expiry_year").removeAttr('name');
-
-//             form.submit();
-//         } else {
-//             $("#stripe-error-message").text(response.error.message);
-//             $("#credit-card-errors").show();
-//             $("#validate_card_btn").attr("disabled", false);
-//         }
-//     });
-//     return false;
-//     });
-// });
-
 /* global $ */
+ /* global Stripe */
 $(function(){
 
     $('#payment-form').submit(function(event){
         // Prevent the default of behaviour of clicking on the form's submit button
         // In general, preventDefault() can be used to override the browser's defualt behaviour
         event.preventDefault();
-        
         let stripe_publishable_key = '{{stripe_publishable_key }}';
-       
-        /* global Stripe */
         Stripe.publishableKey = stripe_publishable_key;
         // This is to create a card object according to the Stripe's specification
         var card = {
@@ -74,10 +35,8 @@ $(function(){
             }  else {
                 alert("Credit card problem");
             }
-        })
-        
-      
-    })
+        });
+    });
 });
 </script>
 {% endblock %}
@@ -103,7 +62,7 @@ $(function(){
     <div class='form-group col-md-6'>
                 <div class='form-control total btn btn-info'>
                   Total:
-                  <span class='amount'> {{ total }}</span>
+                  <span class='amount'> ${{ total }}</span>
                 </div>
   </div>
             
