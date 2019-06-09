@@ -1,5 +1,5 @@
 from django.contrib import admin
-from takeaway_app.models import Menu, Food, Slide
+from takeaway_app.models import Menu, Food
 # Register your models here.
 
 class foodAdmin(admin.ModelAdmin):
@@ -7,4 +7,3 @@ class foodAdmin(admin.ModelAdmin):
 
 admin.site.register(Menu)
 admin.site.register(Food, foodAdmin)
-admin.site.register(Slide)

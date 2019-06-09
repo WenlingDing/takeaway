@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}  {% load bootstrap_tags %}{%block title%}login{%endblock%} 
 {% block content %}
 <div class='container'>
-    <div class='row'>
+    <div class='row ml-auto '>
     {% if messages %}
     <div>
         <ul>
@@ -27,17 +27,18 @@
         {% endfor %}
     {% endif %}
     
-    <p>If you already have an account, you can <a href="{% url 'login_link' %}">sign in</a></p>
+    <p><strong>If you already have an account, you can <a href="{% url 'login_link' %}">sign in</a></strong></p>
  </div>
 </div>
 <div class='container'>
-    <div class='row col-m-10'>
-    <form method="POST">
+ <form method="POST" class="row">
+    <div class="col-lg-10 ml-auto">
         {% csrf_token %}{{ form | as_bootstrap}}
         {{ form.as_bootstrap }}
         <button type="submit" class="btn btn-danger">submit</button>
-    </form>
+    
 </div>
+</form>
 </div>
 
 {% endblock %}

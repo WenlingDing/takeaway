@@ -3,15 +3,14 @@
 {% block content %}
 
 <div class='container'>
-    <div class='row'>
-        <p>If you already have not an account, you can <a href="{% url 'register_link' %}">register</a></p>
-        <form method='post'>
-        {% csrf_token %} {{ form | as_bootstrap}}
-        {{ form.as_bootstrap }}
-        
+        <p><strong>If you already have not an account, you can <a href="{% url 'register_link' %}">register</a></strong></p>
+        <form method="POST" class="row">
+            <div class="col-lg-10 ml-auto">
+            {% csrf_token %} {{ form | as_bootstrap}}
+            {{ form.as_bootstrap }}
         <button type="submit" class="btn btn-danger">Login</button>
+        </div>
     </form>
    </div>
-</div> 
     
 {% endblock %}

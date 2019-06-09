@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Menu, Food
-from .forms import FoodForm
 from django.db.models import Q
 from django import template
 
