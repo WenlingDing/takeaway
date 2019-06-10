@@ -45,7 +45,13 @@ INSTALLED_APPS = [
     'accounts',
     'cart',
     'checkout',
+    'pyuploadcare.dj',
 ]
+
+UPLOADCARE = {
+    'pub_key': '5998b9fa0e11edf97e53',
+    'secret': '260f1a079637ba5b8d6b',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
