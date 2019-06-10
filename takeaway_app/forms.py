@@ -6,5 +6,5 @@ class FoodForm(forms.ModelForm):
     
     class Meta:
         model = Food
-        fields = ('name', 'price', 'image', 'description', 'menu')
+        fields = ('name', 'price', 'photo', 'description', 'menu')
     

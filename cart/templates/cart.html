@@ -6,7 +6,7 @@
 <div class="container">
 {% for item in cart_items %}
 <div class="card text-center" style="width: 16rem; display:inline-block;">
-  <img alt="Card image cap " style="width: 10rem;height: 15vw;" class="card-img-top img-fluid" src="{% get_media_prefix %}{{item.food.image}}" />
+  <img alt="Card image cap " style="width: 10rem;height: 15vw;" class="card-img-top img-fluid" src="{{item.food.photo.cdn_url}}" />
   <div class="card-body">
     <h5 class="card-title">{{ item.food.name }}</h5>
      <h6>Price:  {{ item.food.price }}$</h6>

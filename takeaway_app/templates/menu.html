@@ -11,7 +11,7 @@
 	 {% for food in menu_list %}
     <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12 block">
     			<h5>{{ food.name }}</h5>
-    	       <img src="{% get_media_prefix %}{{food.image}}" style="width:90%" alt="foods" />
+    	       <img src="{{food.photo.cdn_url}}" style="width:90%" alt="foods" />
           			<h6>Price: ${{ food.price }}</h6> 
                 <h6>Cuisine: {{ food.menu }}</h6>
                  <a href="{% url 'food_detail' food.id %}" class="btn btn-warning read-more">Read More</a>
