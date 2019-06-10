@@ -9,7 +9,7 @@
   <img alt="Card image cap " style="width: 10rem;height: 15vw;" class="card-img-top img-fluid" src="{{item.food.photo.cdn_url}}" />
   <div class="card-body">
     <h5 class="card-title">{{ item.food.name }}</h5>
-     <h6>Price:  {{ item.food.price }}$</h6>
+     <h6>Price:  ${{ item.food.price }}</h6>
     <p class="card-text"><form class="form" method="post" action="{% url 'adjust_cart' item.id %}">
                     {% csrf_token %}
                     <div class="form-group">
