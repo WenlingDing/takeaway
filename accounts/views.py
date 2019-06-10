@@ -47,7 +47,7 @@ def register(request):
             register_form.save()
             # will show the message after the redirect
             messages.success(request, "Your account has been created!")
-            return redirect(index)
+            return redirect(login)
         else:
             messages.error(request, "Unable to register your account")
             return render(request, 'register.html', {
