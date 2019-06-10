@@ -1,6 +1,6 @@
 from django.db import models
 from takeaway_app.models import Food
-
+from datetime import datetime
 
 
 # Create your models here.
@@ -13,8 +13,7 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=40, blank=False)
     street_address2 = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=True)
-    date = models.DateTimeField(blank=False)
-    stripe_token = models.CharField(max_length=1000, blank=False)
+    date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "Order - " + str(self.id)

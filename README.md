@@ -114,7 +114,9 @@ Login user functions:<br>
 Deployment
 ==
 
-I have deployed this project to the hosting platform Heroku with a separate GitHub branch.
+I have deployed this project to the hosting platform Heroku with a separate GitHub branch.<br>
+heroku: https://takeaway-app.herokuapp.com/ <br>
+github: https://github.com/WenlingDing/takeaway <br>
 
 Deployment instructions
 ==

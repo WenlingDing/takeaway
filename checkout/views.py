@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404,  redirect,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import PaymentForm, OrderForm
-from .models import OrderLineItem,Order
+from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
 from takeaway_app.models import Food
@@ -37,7 +37,7 @@ def checkout(request):
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
-                    currency="eur",
+                    currency="sgd",
                     description=request.user.email,
                     source = request.POST.get('stripe_id')
                 )
